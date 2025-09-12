@@ -62,7 +62,7 @@ export const loginUser = async (req, res) => {
       }
     }
 
-    return res.status(400).json({
+    res.status(400).json({
       success: false,
       message: "Invalid credentials",
     });
@@ -75,4 +75,18 @@ export const loginUser = async (req, res) => {
 };
 
 // API to get user data
-// 2.50.45 seconds
+export const getUser = async (req, res) => {
+  try {
+    const user = req.user;
+
+    res.status(200).json({
+      success: true,
+      user,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};

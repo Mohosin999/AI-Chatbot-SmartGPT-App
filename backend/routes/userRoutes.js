@@ -1,6 +1,7 @@
 import express from "express";
 const userRouter = express.Router();
 import {
+  getPublishedImages,
   getUser,
   loginUser,
   registerUser,
@@ -10,5 +11,6 @@ import { protect } from "../middlewares/auth.js";
 userRouter.post("/register", registerUser);
 userRouter.post("/login", loginUser);
 userRouter.get("/data", protect, getUser);
+userRouter.get("/published-images", getPublishedImages);
 
 export default userRouter;

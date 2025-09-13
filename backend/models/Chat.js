@@ -18,4 +18,6 @@ const ChatSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// 3 hours 10 minutes 40 seconds
+const Chat = mongoose.model("Chat", ChatSchema);
+
+export default Chat;
